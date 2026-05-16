@@ -22,6 +22,7 @@ interface MaxDataProduto {
   estoque?: number;
   estoqueMinimo?: number;
   desativado?: boolean;     // INVERTIDO: true = produto inativo
+  usaEcommerce?: boolean;
 }
 
 interface PaginatedResponse {
@@ -89,6 +90,7 @@ export async function syncTodosProdutos(lojaId: string): Promise<ProdutoSyncResu
       estoque_atual: p.estoque ?? 0,
       estoque_minimo: p.estoqueMinimo ?? 0,
       ativo: !(p.desativado ?? false),  // campo API é "desativado" — inverter para "ativo"
+      usa_ecommerce: p.usaEcommerce ?? false,
       sincronizado_em: agora,
     }));
 

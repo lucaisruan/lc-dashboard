@@ -24,6 +24,7 @@ interface MaxDataProduto {
   estoque?: number;
   saldoEstoque?: number;
   ativo?: boolean;
+  usaEcommerce?: boolean;
 }
 
 interface MaxDataCliente {
@@ -97,6 +98,7 @@ export async function syncProdutos(
     preco_venda: p.precoVenda ?? p.valor ?? null,
     estoque_atual: p.estoque ?? p.saldoEstoque ?? 0,
     ativo: p.ativo ?? true,
+    usa_ecommerce: p.usaEcommerce ?? false,
     sincronizado_em: agora,
   }));
 
